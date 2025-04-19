@@ -61,9 +61,14 @@ button {
   transition: 0.3s ease;
 }
 
-button:hover {
+button:hover:enabled {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .result {
@@ -77,8 +82,4 @@ button:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-.error {
-  color: red;
 }
