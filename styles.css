@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
   margin: 0;
   padding: 0;
@@ -10,7 +11,7 @@ body {
 }
 
 .container {
-  background: #f5f7fa;
+  background: rgba(245, 247, 250, 0.9);
   padding: 40px 30px;
   border-radius: 20px;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
@@ -31,6 +32,7 @@ p {
   margin-bottom: 25px;
 }
 
+/* Form Input and Button */
 .form-group input {
   display: block;
   width: 100%;
@@ -62,10 +64,11 @@ button {
 }
 
 button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
 }
 
+/* Result Section */
 .result {
   margin-top: 25px;
   font-size: 1.2rem;
@@ -74,8 +77,29 @@ button:hover {
   animation: fadeIn 0.7s ease-in-out;
 }
 
+.error {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+
+  .form-group input, button {
+    width: 100%;
+  }
+}
+
 
