@@ -1,29 +1,32 @@
 body {
-  background: linear-gradient(135deg, #f8d7e1, #f1a7c9);
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
   font-family: 'Poppins', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   margin: 0;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .container {
   text-align: center;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  max-width: 500px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 550px;
+  z-index: 2;
+  animation: fadeIn 1s ease-in-out;
 }
 
 h1 {
   font-family: 'Pacifico', cursive;
-  font-size: 2.5rem;
-  color: #f36b6b;
-  animation: fadeIn 2s ease-out;
+  font-size: 2.8rem;
+  color: #ff6b81;
+  margin-bottom: 20px;
 }
 
 .input-group {
@@ -31,45 +34,76 @@ h1 {
 }
 
 input[type="text"] {
-  padding: 10px;
-  margin: 10px;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  border: 2px solid #f36b6b;
-  width: 80%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: 2px solid #ffa8c5;
+  width: 100%;
+  max-width: 90%;
   transition: 0.3s;
+  background: #fff0f5;
 }
 
 input[type="text"]:focus {
-  border-color: #ff77a9;
+  border-color: #ff6b81;
   outline: none;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #f36b6b;
+  padding: 12px 25px;
+  background-color: #ff6b81;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  margin-top: 15px;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  transform: scale(1.1);
-  background-color: #ff77a9;
+  transform: scale(1.05);
+  background-color: #e05270;
 }
 
 .result {
   margin-top: 30px;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  color: #ff77a9;
-  animation: fadeIn 2s ease-out;
+  color: #d6336c;
+  animation: fadeInUp 1s ease-in-out;
 }
 
 @keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hearts background */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+  background-size: contain;
+  animation: fall 10s linear infinite;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+@keyframes fall {
+  0% {
+    top: -10%;
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX(200px) rotate(360deg);
+  }
 }
