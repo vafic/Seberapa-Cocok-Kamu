@@ -1,37 +1,39 @@
-let lastInput = "";
+let lastYourName = "";
+let lastPartnerName = "";
 
-document.getElementById("checkButton").addEventListener("click", function () {
-  const yourName = document.getElementById("yourName").value.trim();
-  const partnerName = document.getElementById("partnerName").value.trim();
+function checkLove() {
+  const yourNameInput = document.getElementById("yourName");
+  const partnerNameInput = document.getElementById("partnerName");
   const resultDiv = document.getElementById("result");
-  const button = document.getElementById("checkButton");
+  const checkButton = document.getElementById("checkButton");
 
-  // Validasi input kosong
+  const yourName = yourNameInput.value.trim();
+  const partnerName = partnerNameInput.value.trim();
+
   if (yourName === "" || partnerName === "") {
-    resultDiv.innerHTML = "<span class='error'>Nama tidak boleh kosong ya!</span>";
+    resultDiv.innerHTML = "Nama tidak boleh kosong ya!";
     return;
   }
 
-  // Gabungkan nama sebagai key untuk membandingkan
-  const currentInput = yourName.toLowerCase() + "|" + partnerName.toLowerCase();
-
-  // Cek apakah input sama dengan sebelumnya
-  if (currentInput === lastInput) {
-    resultDiv.innerHTML = "<span class='error'>Nama belum berubah. Masukkan nama yang berbeda.</span>";
+  if (
+    yourName.toLowerCase() === lastYourName.toLowerCase() &&
+    partnerName.toLowerCase() === lastPartnerName.toLowerCase()
+  ) {
+    resultDiv.innerHTML = "Nama sudah dicek, coba pasangan nama lain!";
     return;
   }
 
-  // Update lastInput
-  lastInput = currentInput;
-
-  // Proses kecocokan
   const loveScore = Math.floor(Math.random() * 51) + 50;
-  const futureDate = new Date();
-  futureDate.setDate(futureDate.getDate() + Math.floor(Math.random() * 30 + 1));
+  const today = new Date();
+  const futureDate = new Date(today.setDate(today.getDate() + Math.floor(Math.random() * 30 + 1)));
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-  let message = "💖 Kecocokan " + yourName + " & " + partnerName + ": <strong>" + loveScore + "%</strong><br>" +
-                "📅 Tanggal jadian terbaik: <strong>" + futureDate.toLocaleDateString('id-ID', options) + "</strong>";
+  resultDiv.innerHTML = `
+    💖 Kecocokan ${yourName} & ${partnerName}: <strong>${loveScore}%</strong><br>
+    📅 Tanggal jadian terbaik: <strong>${futureDate.toLocaleDateString('id-ID', options)}</strong>
+  `;
 
-  resultDiv.innerHTML = message;
-});
+  // Simpan nama terakhir
+  lastYourName = yourName;
+  lastPartnerName = partnerName;
+}
