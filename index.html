@@ -3,27 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cocokkan Cinta</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+  <title>Tebak Jodoh</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
-<div class="heart" style="left: 25%; animation-delay: 2s;"></div>
-<div class="heart" style="left: 40%; animation-delay: 4s;"></div>
-<div class="heart" style="left: 60%; animation-delay: 6s;"></div>
-<div class="heart" style="left: 75%; animation-delay: 1s;"></div>
+    <h1>Tebak Jodoh 💘</h1>
+    <p>Masukkan nama kamu dan pasanganmu, lalu cek kecocokannya!</p>
 
-    <h1>Cocokkan Cinta Kamu!</h1>
-    <div class="input-group">
-      <input type="text" id="name1" placeholder="Masukkan Nama Kamu" />
-      <input type="text" id="name2" placeholder="Masukkan Nama Pasangan" />
+    <div class="form-group">
+      <input type="text" id="yourName" placeholder="Nama Kamu">
+      <input type="text" id="partnerName" placeholder="Nama Pasangan">
+      <button onclick="checkLove()">Cek Kecocokan</button>
     </div>
-    <button onclick="checkCompatibility()">Cari Kecocokan</button>
+
     <div class="result" id="result"></div>
   </div>
-  
+
   <script src="script.js"></script>
 </body>
 </html>
